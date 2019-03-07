@@ -15,6 +15,18 @@ namespace BnGClub.Models
 
         public int id { get; set; }
 
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return userFName
+                    + (string.IsNullOrEmpty(userMName) ? " " :
+                      (" " + (char?)userMName[0] + ". ").ToUpper())
+                    + userLName;
+            }
+        }
+
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "You cannot leave the first name blank.")]
         [StringLength(50, ErrorMessage = "First Name cannot be more the 50 characters long.")]
@@ -30,11 +42,13 @@ namespace BnGClub.Models
         [StringLength(100, ErrorMessage = "Last Name cannot be more the 100 characters long.")]
         public string userLName { get; set; }
 
+        [Display(Name = "Email Address")]
         [Required(ErrorMessage = "Email Address is required.")]
         [StringLength(255)]
         [DataType(DataType.EmailAddress)]
         public string userEmail { get; set; }
 
+        [Display(Name = "Phone Number")]
         [Required(ErrorMessage = "Phone Number is required.")]
         [RegularExpression("^\\d{10}$", ErrorMessage = "Please enter a valid 10-digit phone number. (No spaces)")]
         [DisplayFormat(DataFormatString = "{0:(###) ###-####}", ApplyFormatInEditMode = false)]

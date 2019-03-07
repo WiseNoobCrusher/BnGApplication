@@ -82,15 +82,15 @@ namespace BnGClub.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
-                    var emp = _context.Users.Where(e => e.userEmail == Input.Email).FirstOrDefault();
-                    if (emp != null)
+                    var user = _context.Users.Where(e => e.userEmail == Input.Email).FirstOrDefault();
+                    if (user != null)
                     {
-                        CookieHelper.CookieSet(HttpContext, "userName", emp.userFName, 3200);
+                        CookieHelper.CookieSet(HttpContext, "userName", user.FullName, 3200);
                     }
                     else
                     {
                         //What better time to create the profile?
-                        returnUrl = "~/Users/Create";
+                        returnUrl = "~/UsersProfile/Create";
                     }
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
