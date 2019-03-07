@@ -12503,11 +12503,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\B&GClub\\BGC_App\\BnGClub\\BnGClub\\BnGClub.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\BnGApplication\\BnGClub\\BnGClub\\BnGClub.csproj",
       "projectName": "BnGClub",
-      "projectPath": "E:\\B&GClub\\BGC_App\\BnGClub\\BnGClub\\BnGClub.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\BnGApplication\\BnGClub\\BnGClub\\BnGClub.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\B&GClub\\BGC_App\\BnGClub\\BnGClub\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\BnGApplication\\BnGClub\\BnGClub\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
