@@ -27,9 +27,12 @@ namespace BnGClub
                 {
                     var context = services.GetRequiredService<BnGClubContext>();
                     context.Database.Migrate();
+
                     var identityContext = services.GetRequiredService<ApplicationDbContext>();
                     identityContext.Database.Migrate();
+
                     ApplicationSeedData.SeedAsync(identityContext, services).Wait();
+                    BNGSeedData.Initialize(services);
                 }
                 catch (Exception ex)
                 {

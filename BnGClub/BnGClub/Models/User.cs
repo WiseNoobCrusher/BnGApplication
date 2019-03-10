@@ -13,7 +13,7 @@ namespace BnGClub.Models
             this.Childs = new HashSet<Child>();
         }
 
-        public int id { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName

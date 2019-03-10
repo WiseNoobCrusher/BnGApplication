@@ -54,6 +54,9 @@ namespace BnGClub.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Display(Name = "Role")]
+            public string Role { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -71,6 +74,18 @@ namespace BnGClub.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            _userManager.AddToRoleAsync(user, Input.Role).Wait();
+                        }
+                        else if (User.IsInRole("Instructor"))
+                        {
+                            _userManager.AddToRoleAsync(user, "Parent").Wait();
+                        }
+                    }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Page(

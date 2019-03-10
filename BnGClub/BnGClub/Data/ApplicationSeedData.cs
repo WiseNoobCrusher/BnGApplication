@@ -38,6 +38,21 @@ namespace BnGClub.Data
                     userManager.AddToRoleAsync(user, "Admin").Wait();
                 }
             }
+            if (userManager.FindByEmailAsync("instructor@outlook.com").Result == null)
+            {
+                IdentityUser user = new IdentityUser
+                {
+                    UserName = "instructor@outlook.com",
+                    Email = "instructor@outlook.com"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Instructor").Wait();
+                }
+            }
             if (userManager.FindByEmailAsync("user1@outlook.com").Result == null)
             {
                 IdentityUser user = new IdentityUser

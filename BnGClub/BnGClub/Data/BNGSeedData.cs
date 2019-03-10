@@ -25,7 +25,7 @@ namespace BnGClub.Data
                          userMName = "Rejean",
                          userLName = "Remington",
                          userPhone = 2896545556,
-                         userEmail = "erejean@gmail.com"
+                         userEmail = "eremington@gmail.com"
                      },
                      new User
                      {
@@ -58,8 +58,7 @@ namespace BnGClub.Data
                          userLName = "Finley",
                          userPhone = 9056663243,
                          userEmail = "jjfinley@outlook.com"
-                     }
-                    );
+                     });
                     context.SaveChanges();
                 }
                 if (!context.Childs.Any())
@@ -67,13 +66,52 @@ namespace BnGClub.Data
                     context.Childs.AddRange(
                      new Child
                      {
-                         childFName = "Ethan",
-                         childMName = "Rejean",
+                         childFName = "Ayaan",
+                         childMName = "Martelle",
+                         childLName = "Acevedo",
+                         childDOB = DateTime.Parse("2009-07-23"),
+                         userID = context.Users.FirstOrDefault(u => u.userFName == "Ciara").ID
+                     },
+                     new Child
+                     {
+                         childFName = "Romeo",
+                         childMName = "Athena",
                          childLName = "Remington",
-                         childDOB = DateTime.Parse("1995-06-07"),
-                         userID = context.Users.FirstOrDefault(d => d.userEmail == "ciaraace12@hotmail.ca").id
-                     }
-                    );
+                         childDOB = DateTime.Parse("2010-12-26"),
+                         userID = context.Users.FirstOrDefault(u => u.userFName == "Ciara").ID
+                     },
+                     new Child
+                     {
+                         childFName = "Brisa",
+                         childMName = "Sharia",
+                         childLName = "Boyd",
+                         childDOB = DateTime.Parse("2011-12-26"),
+                         userID = context.Users.FirstOrDefault(u => u.userFName == "Ciara").ID
+                     },
+                     new Child
+                     {
+                         childFName = "Raquel",
+                         childMName = "Merrel",
+                         childLName = "Bruce",
+                         childDOB = DateTime.Parse("2017-01-20"),
+                         userID = context.Users.FirstOrDefault(u => u.userFName == "Ciara").ID
+                     },
+                     new Child
+                     {
+                         childFName = "Henry",
+                         childMName = "Matty",
+                         childLName = "Finley",
+                         childDOB = DateTime.Parse("2018-08-02"),
+                         userID = context.Users.FirstOrDefault(u => u.userFName == "Ciara").ID
+                     },
+                     new Child
+                     {
+                         childFName = "Angelica",
+                         childMName = "Ganny",
+                         childLName = "Remington",
+                         childDOB = DateTime.Parse("2011-01-07"),
+                         userID = context.Users.FirstOrDefault(u => u.userFName == "Ciara").ID
+                     });
                     context.SaveChanges();
                 }
             }

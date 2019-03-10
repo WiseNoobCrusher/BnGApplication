@@ -17,6 +17,18 @@ namespace BnGClub.Models
 
         public int id { get; set; }
 
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return leaderFName
+                    + (string.IsNullOrEmpty(leaderMName) ? " " :
+                      (" " + (char?)leaderMName[0] + ". ").ToUpper())
+                    + leaderLName;
+            }
+        }
+
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "You cannot leave the first name blank.")]
         [StringLength(50, ErrorMessage = "First Name cannot be more the 50 characters long.")]

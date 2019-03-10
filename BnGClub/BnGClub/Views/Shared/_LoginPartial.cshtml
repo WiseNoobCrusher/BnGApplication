@@ -16,21 +16,28 @@
                 <ul class="dropdown-menu">
                     <li><a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Change Security Settings</a></li>
                     <li class="divider"></li>
-                    <li><a asp-area="" asp-controller="UsersProfile" asp-action="Details">Manage Profile</a></li>
+                    @if (User.IsInRole("Parent"))
+                    {
+                        <li><a asp-area="" asp-controller="UsersProfile" asp-action="Details">Manage Profile</a></li>
+                    }
+                    else if (User.IsInRole("Instructor"))
+                    {
+                        <li><a asp-area="" asp-controller="LeadersProfile" asp-action="Details">Manage Profile</a></li>
+                    }
                     <li><button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button></li>
                 </ul>
             </li>
+            @if (User.IsInRole("Admin") || User.IsInRole("Instructor"))
+            {
+                <li class="divider"></li>
+                <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+            }
         </ul>
     </form>
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        @if (User.IsInRole("Admin") || User.IsInRole("Instructor"))
-        {
-            <li class="divider"></li>
-            <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-}
         <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
     </ul>
 }

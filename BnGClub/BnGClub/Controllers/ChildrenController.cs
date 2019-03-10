@@ -49,7 +49,7 @@ namespace BnGClub.Controllers
         // GET: Children/Create
         public IActionResult Create()
         {
-            ViewData["id"] = new SelectList(_context.Users, "id", "userEmail");
+            PopulateDropDownLists();
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace BnGClub.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.Users, "id", "userEmail", child.id);
+            PopulateDropDownLists(child);
             return View(child);
         }
 
@@ -83,7 +83,7 @@ namespace BnGClub.Controllers
             {
                 return NotFound();
             }
-            ViewData["id"] = new SelectList(_context.Users, "id", "userEmail", child.id);
+            PopulateDropDownLists(child);
             return View(child);
         }
 
@@ -119,7 +119,7 @@ namespace BnGClub.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.Users, "id", "userEmail", child.id);
+            PopulateDropDownLists(child);
             return View(child);
         }
 
@@ -151,6 +151,18 @@ namespace BnGClub.Controllers
             _context.Childs.Remove(child);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        private SelectList UserSelectList(int? id)
+        {
+            var dQuery = from i in _context.Users
+                         orderby i.FullName
+                         select i;
+            return new SelectList(dQuery, "id", "FullName", id);
+        }
+        private void PopulateDropDownLists(Child child = null)
+        {
+            ViewData["userID"] = UserSelectList(child?.userID);
         }
 
         private bool ChildExists(int id)

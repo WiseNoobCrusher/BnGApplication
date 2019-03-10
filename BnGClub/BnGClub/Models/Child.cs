@@ -35,8 +35,11 @@ namespace BnGClub.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = false)]
         public DateTime? childDOB { get; set; }
 
+        [Required(ErrorMessage = "User is required.")]
+        [Display(Name = "Parent")]
         public int userID { get; set; }
 
+        [Display(Name = "Parent")]
         public virtual User User { get; set; }
 
         public virtual ICollection<childEnrolled> ChildEnrolleds { get; set; }

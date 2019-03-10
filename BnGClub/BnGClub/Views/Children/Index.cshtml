@@ -25,9 +25,6 @@
                 @Html.DisplayNameFor(model => model.childDOB)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.userID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.User)
             </th>
             <th></th>
@@ -49,10 +46,7 @@
                 @Html.DisplayFor(modelItem => item.childDOB)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.userID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.userEmail)
+                @Html.DisplayFor(modelItem => item.User.FullName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |

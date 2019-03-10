@@ -52,7 +52,7 @@ namespace BnGClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,userFName,userMName,userLName,userEmail,userPhone")] User user)
+        public async Task<IActionResult> Create([Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] User user)
         {
             user.userEmail = User.Identity.Name;
             try
@@ -99,7 +99,7 @@ namespace BnGClub.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var userToUpdate = await _context.Users
-                .FirstOrDefaultAsync(u => u.id == id);
+                .FirstOrDefaultAsync(u => u.ID == id);
 
             if (await TryUpdateModelAsync<User>(userToUpdate, "",
                 u => u.userFName, u => u.userMName, u => u.userLName, u => u.userPhone))
@@ -114,7 +114,7 @@ namespace BnGClub.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(userToUpdate.id))
+                    if (!UserExists(userToUpdate.ID))
                     {
                         return NotFound();
                     }
@@ -137,7 +137,7 @@ namespace BnGClub.Controllers
             }
 
             var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
                 return NotFound();
@@ -164,7 +164,7 @@ namespace BnGClub.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.id == id);
+            return _context.Users.Any(e => e.ID == id);
         }
     }
 }
