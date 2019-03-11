@@ -63,7 +63,7 @@ using BnGClub.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(122, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0501ac4dad864eaeb4d67fc4854901bb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9ebccfe91e64009bde158fabe957c37", async() => {
                 BeginContext(145, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

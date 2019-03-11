@@ -173,7 +173,7 @@ using BnGClub.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1089, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5942f2433850402780394c44bfb0ad76", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4461c52f04534f899ac864b8bda63e21", async() => {
                 BeginContext(1135, 12, true);
                 WriteLiteral("Edit Profile");
                 EndContext();

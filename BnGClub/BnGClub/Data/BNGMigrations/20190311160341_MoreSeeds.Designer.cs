@@ -4,14 +4,16 @@ using BnGClub.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BnGClub.Data.BNGMigrations
 {
     [DbContext(typeof(BnGClubContext))]
-    partial class BnGClubContextModelSnapshot : ModelSnapshot
+    [Migration("20190311160341_MoreSeeds")]
+    partial class MoreSeeds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

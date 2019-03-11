@@ -158,7 +158,7 @@ namespace BnGClub.Controllers
             var dQuery = from i in _context.Users
                          orderby i.FullName
                          select i;
-            return new SelectList(dQuery, "id", "FullName", id);
+            return new SelectList(dQuery, "ID", "FullName", id);
         }
         private void PopulateDropDownLists(Child child = null)
         {
