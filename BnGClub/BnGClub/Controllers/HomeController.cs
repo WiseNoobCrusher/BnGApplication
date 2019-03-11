@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BnGClub.Models;
+using BnGClub.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BnGClub.Controllers
 {

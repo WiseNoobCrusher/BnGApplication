@@ -38,6 +38,10 @@ namespace BnGClub.Data
                 .HasIndex(u => new { u.userEmail })
                 .IsUnique();
 
+            modelBuilder.Entity<Leader>()
+                .HasIndex(l => new { l.leaderEmail })
+                .IsUnique();
+
             modelBuilder.Entity<User>()
                 .HasMany<Child>(u => u.Childs)
                 .WithOne(c => c.User)

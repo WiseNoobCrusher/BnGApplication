@@ -49,7 +49,7 @@ namespace BnGClub.Controllers
         // GET: LeaderMessages/Create
         public IActionResult Create()
         {
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail");
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace BnGClub.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail", leaderMessage.id);
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName", leaderMessage.id);
             return View(leaderMessage);
         }
 
@@ -83,7 +83,7 @@ namespace BnGClub.Controllers
             {
                 return NotFound();
             }
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail", leaderMessage.id);
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName", leaderMessage.id);
             return View(leaderMessage);
         }
 
@@ -119,7 +119,7 @@ namespace BnGClub.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail", leaderMessage.id);
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName", leaderMessage.id);
             return View(leaderMessage);
         }
 

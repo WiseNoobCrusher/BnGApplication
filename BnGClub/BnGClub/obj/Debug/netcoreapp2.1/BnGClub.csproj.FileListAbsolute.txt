@@ -82,7 +82,6 @@ E:\B&GClub\BGC_App\BnGClub\BnGClub\bin\Debug\netcoreapp2.1\BnGClub.Views.pdb
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.csproj.CoreCompileInputs.cache
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.RazorAssemblyInfo.cache
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.RazorAssemblyInfo.cs
-E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.AssemblyInfoInputs.cache
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.AssemblyInfo.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.TagHelpers.input.cache
@@ -236,3 +235,16 @@ F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscript
 F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscriptions\Index.g.cshtml.cs
 F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\WebPush\GenerateKeys.g.cshtml.cs
 F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\WebPush\Send.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\LeadersProfile\Create.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\LeadersProfile\Delete.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\LeadersProfile\Details.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\LeadersProfile\Edit.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\LeadersProfile\Index.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscriptions\Create.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscriptions\Delete.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscriptions\Details.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscriptions\Edit.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Subscriptions\Index.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\WebPush\GenerateKeys.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\WebPush\Send.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

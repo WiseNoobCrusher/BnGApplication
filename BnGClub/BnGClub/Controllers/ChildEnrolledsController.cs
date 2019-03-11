@@ -50,8 +50,8 @@ namespace BnGClub.Controllers
         // GET: ChildEnrolleds/Create
         public IActionResult Create()
         {
-            ViewData["id"] = new SelectList(_context.Activities, "id", "actAvailablePlace");
-            ViewData["id"] = new SelectList(_context.Childs, "id", "childFName");
+            ViewData["id"] = new SelectList(_context.Activities, "id", "acttypeName");
+            ViewData["id"] = new SelectList(_context.Childs, "id", "FullName");
             return View();
         }
 
@@ -68,8 +68,8 @@ namespace BnGClub.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.Activities, "id", "actAvailablePlace", childEnrolled.id);
-            ViewData["id"] = new SelectList(_context.Childs, "id", "childFName", childEnrolled.id);
+            ViewData["id"] = new SelectList(_context.Activities, "id", "acttypeName", childEnrolled.id);
+            ViewData["id"] = new SelectList(_context.Childs, "id", "FullName", childEnrolled.id);
             return View(childEnrolled);
         }
 
@@ -86,8 +86,8 @@ namespace BnGClub.Controllers
             {
                 return NotFound();
             }
-            ViewData["id"] = new SelectList(_context.Activities, "id", "actAvailablePlace", childEnrolled.id);
-            ViewData["id"] = new SelectList(_context.Childs, "id", "childFName", childEnrolled.id);
+            ViewData["id"] = new SelectList(_context.Activities, "id", "acttypeName", childEnrolled.id);
+            ViewData["id"] = new SelectList(_context.Childs, "id", "FullName", childEnrolled.id);
             return View(childEnrolled);
         }
 
@@ -123,8 +123,8 @@ namespace BnGClub.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.Activities, "id", "actAvailablePlace", childEnrolled.id);
-            ViewData["id"] = new SelectList(_context.Childs, "id", "childFName", childEnrolled.id);
+            ViewData["id"] = new SelectList(_context.Activities, "id", "acttypeName", childEnrolled.id);
+            ViewData["id"] = new SelectList(_context.Childs, "id", "FullName", childEnrolled.id);
             return View(childEnrolled);
         }
 

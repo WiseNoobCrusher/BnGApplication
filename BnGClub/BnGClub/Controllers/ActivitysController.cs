@@ -50,8 +50,8 @@ namespace BnGClub.Controllers
         // GET: Activitys/Create
         public IActionResult Create()
         {
-            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeDescription");
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail");
+            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeName");
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName");
             return View();
         }
 
@@ -68,8 +68,8 @@ namespace BnGClub.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeDescription", activitys.id);
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail", activitys.id);
+            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeName", activitys.id);
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName", activitys.id);
             return View(activitys);
         }
 
@@ -86,8 +86,8 @@ namespace BnGClub.Controllers
             {
                 return NotFound();
             }
-            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeDescription", activitys.id);
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail", activitys.id);
+            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeName", activitys.id);
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName", activitys.id);
             return View(activitys);
         }
 
@@ -123,8 +123,8 @@ namespace BnGClub.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeDescription", activitys.id);
-            ViewData["id"] = new SelectList(_context.Leaders, "id", "leaderEmail", activitys.id);
+            ViewData["id"] = new SelectList(_context.ActTypes, "id", "acttypeName", activitys.id);
+            ViewData["id"] = new SelectList(_context.Leaders, "id", "FullName", activitys.id);
             return View(activitys);
         }
 
