@@ -1,0 +1,57 @@
+﻿@model BnGClub.Models.Subscriptions
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Sub</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PushEndpoint)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PushEndpoint)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PushP256DH)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PushP256DH)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PushAuth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PushAuth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaderID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Leader.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.FullName)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
