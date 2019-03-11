@@ -1,0 +1,46 @@
+﻿@model BnGClub.Models.Leader
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>Profile for: @Model.FullName</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.leaderFName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.leaderFName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.leaderMName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.leaderMName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.leaderLName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.leaderLName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.leaderPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.leaderPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.leaderEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.leaderEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit Profile</a>
+</div>
