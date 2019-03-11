@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BnGClub.Models.Announcement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.annMessage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.annDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.leaderID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.actID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activitys)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.annMessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.annDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leader.leaderEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activitys.actAvailablePlace)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

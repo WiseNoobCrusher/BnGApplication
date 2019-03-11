@@ -1,0 +1,54 @@
+﻿@model BnGClub.Models.Announcement
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Announcement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.annMessage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.annMessage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.annDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.annDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.leaderID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.leaderID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.actID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.actID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Leader)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Leader.leaderEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activitys)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Activitys.actAvailablePlace)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

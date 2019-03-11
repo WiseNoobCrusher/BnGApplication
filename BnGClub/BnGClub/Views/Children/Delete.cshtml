@@ -1,0 +1,51 @@
+﻿@model BnGClub.Models.Child
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Child</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.childFName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childFName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.childMName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childMName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.childLName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childLName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.childDOB)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childDOB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.userEmail)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
