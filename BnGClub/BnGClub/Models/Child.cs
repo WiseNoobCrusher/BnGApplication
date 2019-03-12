@@ -51,7 +51,7 @@ namespace BnGClub.Models
         [Display(Name = "Parent")]
         public int UserID { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual Users User { get; set; }
 
         public virtual ICollection<childEnrolled> ChildEnrolleds { get; set; }
     }

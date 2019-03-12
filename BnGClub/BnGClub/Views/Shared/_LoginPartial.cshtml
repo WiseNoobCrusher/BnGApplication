@@ -12,7 +12,14 @@
             @{var userName = (HttpContextAccessor.HttpContext.Request.Cookies["userName"] != null) ? HttpContextAccessor.HttpContext.Request.Cookies["userName"] : UserManager.GetUserName(User);
             }
             <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">@userName - Menu<b class="caret"></b></a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin - Menu<b class="caret"></b></a>
+                }
+                else
+                {
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">@userName - Menu<b class="caret"></b></a>
+                }
                 <ul class="dropdown-menu">
                     <li><a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Change Security Settings</a></li>
                     <li class="divider"></li>

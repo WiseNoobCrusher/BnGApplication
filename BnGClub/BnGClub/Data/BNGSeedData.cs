@@ -19,7 +19,7 @@ namespace BnGClub.Data
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                     new User
+                     new Users
                      {
                          userFName = "Ethan",
                          userMName = "Rejean",
@@ -27,7 +27,7 @@ namespace BnGClub.Data
                          userPhone = 2896545556,
                          userEmail = "eremington@gmail.com"
                      },
-                     new User
+                     new Users
                      {
                          userFName = "Ciara",
                          userMName = "Madelle",
@@ -35,7 +35,7 @@ namespace BnGClub.Data
                          userPhone = 9054356782,
                          userEmail = "ciaraace12@hotmail.ca"
                      },
-                     new User
+                     new Users
                      {
                          userFName = "Jayce",
                          userMName = "Hewe",
@@ -43,7 +43,7 @@ namespace BnGClub.Data
                          userPhone = 2899546598,
                          userEmail = "mvpbruce69@yahoo.com"
                      },
-                     new User
+                     new Users
                      {
                          userFName = "Micheal",
                          userMName = "Cody",
@@ -51,7 +51,7 @@ namespace BnGClub.Data
                          userPhone = 9056739845,
                          userEmail = "mcody@hotmail.com"
                      },
-                     new User
+                     new Users
                      {
                          userFName = "Jayleen",
                          userMName = "Jonas",

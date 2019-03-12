@@ -38,6 +38,81 @@ namespace BnGClub.Data
                     userManager.AddToRoleAsync(user, "Admin").Wait();
                 }
             }
+            if (userManager.FindByEmailAsync("eremington@gmail.com").Result == null)
+            {
+                IdentityUser user = new IdentityUser
+                {
+                    UserName = "eremington@gmail.com",
+                    Email = "eremington@gmail.com"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Parent").Wait();
+                }
+            }
+            if (userManager.FindByEmailAsync("ciaraace12@hotmail.ca").Result == null)
+            {
+                IdentityUser user = new IdentityUser
+                {
+                    UserName = "ciaraace12@hotmail.ca",
+                    Email = "ciaraace12@hotmail.ca"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Parent").Wait();
+                }
+            }
+            if (userManager.FindByEmailAsync("mvpbruce69@yahoo.com").Result == null)
+            {
+                IdentityUser user = new IdentityUser
+                {
+                    UserName = "mvpbruce69@yahoo.com",
+                    Email = "mvpbruce69@yahoo.com"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Parent").Wait();
+                }
+            }
+            if (userManager.FindByEmailAsync("mcody@hotmail.com").Result == null)
+            {
+                IdentityUser user = new IdentityUser
+                {
+                    UserName = "mcody@hotmail.com",
+                    Email = "mcody@hotmail.com"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Parent").Wait();
+                }
+            }
+            if (userManager.FindByEmailAsync("jjfinley@outlook.com").Result == null)
+            {
+                IdentityUser user = new IdentityUser
+                {
+                    UserName = "jjfinley@outlook.com",
+                    Email = "jjfinley@outlook.com"
+                };
+
+                IdentityResult result = userManager.CreateAsync(user, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Parent").Wait();
+                }
+            }
             if (userManager.FindByEmailAsync("harrypotter@yahoo.com").Result == null)
             {
                 IdentityUser user = new IdentityUser

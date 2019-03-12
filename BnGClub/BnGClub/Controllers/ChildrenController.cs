@@ -20,10 +20,22 @@ namespace BnGClub.Controllers
         }
 
         // GET: Children
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string userEmail)
         {
-            var bngClubContext = _context.Childs.Include(c => c.User);
-            return View(await bngClubContext.ToListAsync());
+            var children = from c in _context.Childs
+                           .Include(c => c.User)
+                           select c;
+
+            if (userEmail != null)
+            {
+                if (User.IsInRole("Parent"))
+                {
+                    int UserID = _context.Users.FirstOrDefault(u => u.userEmail == userEmail).ID;
+                    children = children.Where(c => c.UserID == UserID);
+                }
+            }
+
+            return View(await children.ToListAsync());
         }
 
         // GET: Children/Details/5

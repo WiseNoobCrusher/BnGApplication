@@ -52,16 +52,16 @@ namespace BnGClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] User user)
+        public async Task<IActionResult> Create([Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] Users users)
         {
-            user.userEmail = User.Identity.Name;
+            users.userEmail = User.Identity.Name;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Add(user);
+                    _context.Add(users);
                     await _context.SaveChangesAsync();
-                    UpdateUserNameCookie(user.FullName);
+                    UpdateUserNameCookie(users.FullName);
                     return RedirectToAction(nameof(Details));
                 }
             }
@@ -70,7 +70,7 @@ namespace BnGClub.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
 
-            return View(user);
+            return View(users);
         }
 
         // GET: UsersProfile/Edit/5
@@ -81,14 +81,14 @@ namespace BnGClub.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var users = await _context.Users
                 .Where(u => u.userEmail == User.Identity.Name)
                 .FirstOrDefaultAsync();
-            if (user == null)
+            if (users == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(users);
         }
 
         // POST: UsersProfile/Edit/5
@@ -98,23 +98,23 @@ namespace BnGClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id)
         {
-            var userToUpdate = await _context.Users
+            var usersToUpdate = await _context.Users
                 .FirstOrDefaultAsync(u => u.ID == id);
 
-            if (await TryUpdateModelAsync<User>(userToUpdate, "",
+            if (await TryUpdateModelAsync<Users>(usersToUpdate, "",
                 u => u.userFName, u => u.userMName, u => u.userLName, u => u.userPhone))
             {
                 try
                 {
                     //Put the original RowVersion value in the OriginalValues collection for the entity
-                    _context.Update(userToUpdate);
+                    _context.Update(usersToUpdate);
                     await _context.SaveChangesAsync();
-                    UpdateUserNameCookie(userToUpdate.FullName);
+                    UpdateUserNameCookie(usersToUpdate.FullName);
                     return RedirectToAction(nameof(Details));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(userToUpdate.ID))
+                    if (!UsersExists(usersToUpdate.ID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace BnGClub.Controllers
                     }
                 }
             }
-            return View(userToUpdate);
+            return View(usersToUpdate);
         }
 
         // GET: UsersProfile/Delete/5
@@ -136,14 +136,14 @@ namespace BnGClub.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var users = await _context.Users
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (users == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(users);
         }
 
         // POST: UsersProfile/Delete/5
@@ -151,8 +151,8 @@ namespace BnGClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            _context.Users.Remove(user);
+            var users = await _context.Users.FindAsync(id);
+            _context.Users.Remove(users);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -162,7 +162,7 @@ namespace BnGClub.Controllers
             CookieHelper.CookieSet(HttpContext, "userName", userName, 960);
         }
 
-        private bool UserExists(int id)
+        private bool UsersExists(int id)
         {
             return _context.Users.Any(e => e.ID == id);
         }

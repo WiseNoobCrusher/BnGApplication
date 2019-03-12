@@ -40,9 +40,14 @@
                             <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                         </ul>
                     </li>
+                    @if (User.IsInRole("Parent"))
+                    {
+                        <li><a href="@Url.Action("Index", "Children", new { userEmail = User.Identity.Name })">Manage Kids</a></li>
+                        <li><a asp-area="" asp-controller="Messages" asp-action="Index">Leader Messages</a></li>
+                    }
                     @if (User.IsInRole("Instructor"))
                     {
-                        <li><a asp-area="" asp-controller="Children" asp-action="Index">Manage Kids</a></li>
+                        //<li><a asp-area="" asp-controller="Children" asp-action="Index">Manage Kids</a></li>
                         <li><a asp-area="" asp-controller="Messages" asp-action="Index">Leader Messages</a></li>
                         <li><a asp-area="" asp-controller="Subscriptions" asp-action="Index">Subscriptions</a></li>
                     }

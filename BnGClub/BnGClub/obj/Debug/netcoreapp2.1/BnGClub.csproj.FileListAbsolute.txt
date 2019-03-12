@@ -116,11 +116,6 @@ E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitys\Create.g.cshtml.cs
-E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitys\Delete.g.cshtml.cs
-E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitys\Details.g.cshtml.cs
-E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitys\Edit.g.cshtml.cs
-E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitys\Index.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\ActTypes\Create.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\ActTypes\Delete.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\ActTypes\Details.g.cshtml.cs
@@ -248,3 +243,8 @@ F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitie
 F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Details.g.cshtml.cs
 F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Edit.g.cshtml.cs
 F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Index.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Create.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Delete.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Details.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Edit.g.cshtml.cs
+E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Index.g.cshtml.cs

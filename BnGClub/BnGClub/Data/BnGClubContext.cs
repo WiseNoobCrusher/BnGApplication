@@ -14,7 +14,7 @@ namespace BnGClub.Data
         {
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Child> Childs { get; set; }
         public DbSet<childEnrolled> childEnrolleds { get; set; }
         public DbSet<Activities> Activities { get; set; }
@@ -34,7 +34,7 @@ namespace BnGClub.Data
             modelBuilder.Entity<Subscriptions>()
                 .HasKey(s => s.ID);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<Users>()
                 .HasIndex(u => new { u.userEmail })
                 .IsUnique();
 
@@ -42,7 +42,7 @@ namespace BnGClub.Data
                 .HasIndex(l => new { l.leaderEmail })
                 .IsUnique();
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<Users>()
                 .HasMany<Child>(u => u.Children)
                 .WithOne(c => c.User)
                 .HasForeignKey(c => c.UserID)

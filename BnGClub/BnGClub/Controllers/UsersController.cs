@@ -33,14 +33,14 @@ namespace BnGClub.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var users = await _context.Users
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (users == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(users);
         }
 
         // GET: Users/Create
@@ -54,15 +54,15 @@ namespace BnGClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] User user)
+        public async Task<IActionResult> Create([Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] Users users)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(users);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(users);
         }
 
         // GET: Users/Edit/5
@@ -73,12 +73,12 @@ namespace BnGClub.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var users = await _context.Users.FindAsync(id);
+            if (users == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(users);
         }
 
         // POST: Users/Edit/5
@@ -86,9 +86,9 @@ namespace BnGClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,userFName,userMName,userLName,userEmail,userPhone")] Users users)
         {
-            if (id != user.ID)
+            if (id != users.ID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace BnGClub.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(users);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.ID))
+                    if (!UsersExists(users.ID))
                     {
                         return NotFound();
                     }
@@ -113,7 +113,7 @@ namespace BnGClub.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(users);
         }
 
         // GET: Users/Delete/5
@@ -124,14 +124,14 @@ namespace BnGClub.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var users = await _context.Users
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (users == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(users);
         }
 
         // POST: Users/Delete/5
@@ -139,13 +139,13 @@ namespace BnGClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            _context.Users.Remove(user);
+            var users = await _context.Users.FindAsync(id);
+            _context.Users.Remove(users);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool UsersExists(int id)
         {
             return _context.Users.Any(e => e.ID == id);
         }
