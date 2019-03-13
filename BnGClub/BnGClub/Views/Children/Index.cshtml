@@ -18,9 +18,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.childDOB)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserID)
-            </th>
+            @if (!User.IsInRole("Parent"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.UserID)
+                </th>
+            }
             <th></th>
         </tr>
     </thead>
@@ -33,9 +36,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.childDOB)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.FullName)
-            </td>
+            @if (!User.IsInRole("Parent"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FullName)
+                </td>
+            }
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |

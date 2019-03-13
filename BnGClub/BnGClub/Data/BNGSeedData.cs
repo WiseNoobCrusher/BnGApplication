@@ -55,7 +55,7 @@ namespace BnGClub.Data
                      {
                          userFName = "Jayleen",
                          userMName = "Jonas",
-                         userLName = "Finley",
+                         userLName = "Acevedo",
                          userPhone = 9056663243,
                          userEmail = "jjfinley@outlook.com"
                      });
@@ -182,14 +182,6 @@ namespace BnGClub.Data
                          childLName = "Finley",
                          childDOB = DateTime.Parse("2017-08-02"),
                          UserID = context.Users.FirstOrDefault(u => u.userEmail == "jjfinley@outlook.com").ID
-                     },
-                     new Child
-                     {
-                         childFName = "Angelica",
-                         childMName = "Ganny",
-                         childLName = "Remington",
-                         childDOB = DateTime.Parse("2011-01-07"),
-                         UserID = context.Users.FirstOrDefault(u => u.userEmail == "eremington@gmail.com").ID
                      });
                     context.SaveChanges();
                 }
@@ -256,6 +248,18 @@ namespace BnGClub.Data
                          actRequirement = "2.5 years to 4 years",
                          LeaderID = context.Leaders.FirstOrDefault(l => l.leaderEmail == "lmathis@yahoo.com").ID,
                          ActTypeID = context.ActTypes.FirstOrDefault(at => at.acttypeName == "Youth Outreach").ID
+                     });
+                    context.SaveChanges();
+                }
+                if (!context.Schedules.Any())
+                {
+                    context.Schedules.AddRange(
+                     new Schedules
+                     {
+                         startTime = DateTime.Parse("18:30"),
+                         endTime = DateTime.Parse("19:30"),
+                         dateAct = DateTime.Parse("2019-03-13"),
+                         ActID = context.Activities.FirstOrDefault(a => a.actName == "Connections Program").ID
                      });
                     context.SaveChanges();
                 }

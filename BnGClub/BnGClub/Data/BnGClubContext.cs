@@ -20,6 +20,7 @@ namespace BnGClub.Data
         public DbSet<Activities> Activities { get; set; }
         public DbSet<ActType> ActTypes { get; set; }
         public DbSet<Leader> Leaders { get; set; }
+        public DbSet<Schedules> Schedules { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<LeaderMessage> LeaderMessages { get; set; }
         public DbSet<Subscriptions> Subscriptions { get; set; }
@@ -88,6 +89,12 @@ namespace BnGClub.Data
                 .HasMany<Announcement>(l => l.Announcements)
                 .WithOne(a => a.Leader)
                 .HasForeignKey(a => a.LeaderID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Activities>()
+                .HasMany<Schedules>(a => a.Schedules)
+                .WithOne(s => s.Activities)
+                .HasForeignKey(s => s.ActID)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

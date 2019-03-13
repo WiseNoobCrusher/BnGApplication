@@ -248,3 +248,8 @@ E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activitie
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Details.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Edit.g.cshtml.cs
 E:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Activities\Index.g.cshtml.cs
+F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Create.g.cshtml.cs
+F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Delete.g.cshtml.cs
+F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Details.g.cshtml.cs
+F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Edit.g.cshtml.cs
+F:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Index.g.cshtml.cs

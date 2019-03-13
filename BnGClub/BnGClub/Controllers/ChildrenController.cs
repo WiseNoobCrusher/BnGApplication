@@ -20,19 +20,16 @@ namespace BnGClub.Controllers
         }
 
         // GET: Children
-        public async Task<IActionResult> Index(string userEmail)
+        public async Task<IActionResult> Index()
         {
             var children = from c in _context.Childs
                            .Include(c => c.User)
                            select c;
 
-            if (userEmail != null)
+            if (User.IsInRole("Parent"))
             {
-                if (User.IsInRole("Parent"))
-                {
-                    int UserID = _context.Users.FirstOrDefault(u => u.userEmail == userEmail).ID;
-                    children = children.Where(c => c.UserID == UserID);
-                }
+                int UserID = _context.Users.FirstOrDefault(u => u.userEmail == User.Identity.Name).ID;
+                children = children.Where(c => c.UserID == UserID);
             }
 
             return View(await children.ToListAsync());

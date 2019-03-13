@@ -11,6 +11,7 @@ namespace BnGClub.Models
         public Activities()
         {
             this.ChildEnrolleds = new HashSet<childEnrolled>();
+            this.Schedules = new HashSet<Schedules>();
             this.Announcements = new HashSet<Announcement>();
         }
 
@@ -49,6 +50,8 @@ namespace BnGClub.Models
         public virtual Leader Leader { get; set; }
 
         public virtual ActType ActType { get; set; }
+
+        public virtual ICollection<Schedules> Schedules { get; set; }
 
         public virtual ICollection<Announcement> Announcements { get; set; }
 

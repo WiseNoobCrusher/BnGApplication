@@ -199,6 +199,27 @@ namespace BnGClub.Data.BNGMigrations
                     b.ToTable("LeaderMessages");
                 });
 
+            modelBuilder.Entity("BnGClub.Models.Schedules", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ActID");
+
+                    b.Property<DateTime>("dateAct");
+
+                    b.Property<DateTime>("endTime");
+
+                    b.Property<DateTime>("startTime");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ActID");
+
+                    b.ToTable("Schedules");
+                });
+
             modelBuilder.Entity("BnGClub.Models.Subscriptions", b =>
                 {
                     b.Property<int>("ID")
@@ -230,7 +251,7 @@ namespace BnGClub.Data.BNGMigrations
                     b.ToTable("Subscriptions");
                 });
 
-            modelBuilder.Entity("BnGClub.Models.User", b =>
+            modelBuilder.Entity("BnGClub.Models.Users", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -290,7 +311,7 @@ namespace BnGClub.Data.BNGMigrations
 
             modelBuilder.Entity("BnGClub.Models.Child", b =>
                 {
-                    b.HasOne("BnGClub.Models.User", "User")
+                    b.HasOne("BnGClub.Models.Users", "User")
                         .WithMany("Children")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -317,13 +338,21 @@ namespace BnGClub.Data.BNGMigrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("BnGClub.Models.Schedules", b =>
+                {
+                    b.HasOne("BnGClub.Models.Activities", "Activities")
+                        .WithMany("Schedules")
+                        .HasForeignKey("ActID")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("BnGClub.Models.Subscriptions", b =>
                 {
                     b.HasOne("BnGClub.Models.Leader", "Leader")
                         .WithMany("Subscriptions")
                         .HasForeignKey("LeaderID");
 
-                    b.HasOne("BnGClub.Models.User", "User")
+                    b.HasOne("BnGClub.Models.Users", "User")
                         .WithMany("Subscriptions")
                         .HasForeignKey("UserID");
                 });
