@@ -7,8 +7,28 @@
 <h2>Index</h2>
 
 <p>
+    <a asp-action="DownloadActivities" 
+       class="btn btn-info">Download all Activities</a>
+    <br />
     <a asp-action="Create">Create New</a>
+
+
 </p>
+
+<form asp-action="InsertFromExcel" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="control-label">Excel File:</label>
+        <input type="file" class="" name="theExcel" /><br />
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="submit" value="Upload Data" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
