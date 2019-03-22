@@ -24,6 +24,9 @@
                     @Html.DisplayNameFor(model => model.UserID)
                 </th>
             }
+            <th>
+                Activities
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -42,6 +45,12 @@
                     @Html.DisplayFor(modelItem => item.User.FullName)
                 </td>
             }
+            <td>
+                @foreach (var a in item.ChildEnrolleds)
+                {
+                    @a.Activities.actName <br />
+                }
+            </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |

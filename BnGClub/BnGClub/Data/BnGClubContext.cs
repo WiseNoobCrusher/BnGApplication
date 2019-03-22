@@ -20,9 +20,9 @@ namespace BnGClub.Data
         public DbSet<Activities> Activities { get; set; }
         public DbSet<ActType> ActTypes { get; set; }
         public DbSet<Leader> Leaders { get; set; }
-        public DbSet<Schedules> Schedules { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
         public DbSet<LeaderMessage> LeaderMessages { get; set; }
+        public DbSet<Schedules> Schedules { get; set; }
         public DbSet<Subscriptions> Subscriptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

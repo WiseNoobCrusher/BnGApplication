@@ -1,16 +1,13 @@
 ﻿@model BnGClub.Models.Child
-
 @{
     ViewData["Title"] = "Edit";
 }
-
 <h2>Edit</h2>
-
 <h4>Child</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-md-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
@@ -35,17 +32,40 @@
             </div>
             <div class="form-group">
                 <label asp-for="UserID" class="control-label"></label>
-                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID">
+                    <option disabled="disabled" selected="selected">Select a Parent...</option>
+                </select>
                 <span asp-validation-for="UserID" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="submit" id="btnSubmit" value="Save" class="btn btn-primary" />
+                </div>
             </div>
-        </form>
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="width:700px">
+                <div class="form-group col-md-6" style="display:block;text-align:center;padding:10px">
+                    <label class="control-label"> Activities Accredited</label> <button type="button" id="btnRight" class="btn btn-danger btn-sm">
+                        <span aria-hidden="true">-</span>
+                    </button>
+                    @Html.ListBox("selectedOptions", (MultiSelectList)ViewBag.selOpts, new { @size = 10, @class = "form-control" })
+                </div>
+                <div class="form-group col-md-6" style="display:block;text-align:center;padding:10px">
+                    <label class="control-label"> Choose Activities</label> <button type="button" id="btnLeft" class="btn btn-success btn-sm">
+                        <span aria-hidden="true">+</span>
+                    </button>
+                    @Html.ListBox("availOptions", (MultiSelectList)ViewBag.availOpts, new { @size = 10, @class = "form-control" })
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
+</form>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_MultiselectPartial");}
+}

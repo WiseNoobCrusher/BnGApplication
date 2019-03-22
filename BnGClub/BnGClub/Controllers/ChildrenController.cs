@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BnGClub.Data;
 using BnGClub.Models;
+using BnGClub.ViewModels;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace BnGClub.Controllers
 {
@@ -24,6 +26,7 @@ namespace BnGClub.Controllers
         {
             var children = from c in _context.Childs
                            .Include(c => c.User)
+                           .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
                            select c;
 
             if (User.IsInRole("Parent"))
@@ -45,6 +48,7 @@ namespace BnGClub.Controllers
 
             var child = await _context.Childs
                 .Include(c => c.User)
+                .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (child == null)
             {
@@ -57,6 +61,8 @@ namespace BnGClub.Controllers
         // GET: Children/Create
         public IActionResult Create()
         {
+            Child child = new Child();
+            PopulateAssignedActivityData(child);
             PopulateDropDownLists();
             return View();
         }
@@ -66,14 +72,23 @@ namespace BnGClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,childFName,childMName,childLName,childDOB,UserID")] Child child)
+        public async Task<IActionResult> Create([Bind("ID,childFName,childMName,childLName,childDOB,UserID")] Child child, string[] selectedOptions)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(child);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                UpdateChildActivities(selectedOptions, child);
+                if (ModelState.IsValid)
+                {
+                    _context.Add(child);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+            PopulateAssignedActivityData(child);
             PopulateDropDownLists(child);
             return View(child);
         }
@@ -86,11 +101,18 @@ namespace BnGClub.Controllers
                 return NotFound();
             }
 
-            var child = await _context.Childs.FindAsync(id);
+            var child = await _context.Childs
+                .Include(c => c.User)
+                .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(c => c.ID == id);
+
             if (child == null)
             {
                 return NotFound();
             }
+
+            PopulateAssignedActivityData(child);
             PopulateDropDownLists(child);
             return View(child);
         }
@@ -100,23 +122,35 @@ namespace BnGClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,childFName,childMName,childLName,childDOB,UserID")] Child child)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,childFName,childMName,childLName,childDOB,UserID")] Child child, string[] selectedOptions)
         {
-            if (id != child.ID)
+            var childToUpdate = await _context.Childs
+                .Include(c => c.User)
+                .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
+                .SingleOrDefaultAsync(c => c.ID == id);
+
+            if (childToUpdate == null)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            UpdateChildActivities(selectedOptions, childToUpdate);
+
+            if (await TryUpdateModelAsync<Child>(childToUpdate, "", 
+                c => c.childFName, c => c.childMName, c => c.childLName, c => c.childDOB))
             {
                 try
                 {
-                    _context.Update(child);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (RetryLimitExceededException /* dex */)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ChildExists(child.ID))
+                    if (!ChildExists(childToUpdate.ID))
                     {
                         return NotFound();
                     }
@@ -125,10 +159,14 @@ namespace BnGClub.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                }
             }
-            PopulateDropDownLists(child);
-            return View(child);
+            PopulateAssignedActivityData(childToUpdate);
+            PopulateDropDownLists(childToUpdate);
+            return View(childToUpdate);
         }
 
         // GET: Children/Delete/5
@@ -141,6 +179,7 @@ namespace BnGClub.Controllers
 
             var child = await _context.Childs
                 .Include(c => c.User)
+                .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (child == null)
             {
@@ -172,6 +211,70 @@ namespace BnGClub.Controllers
         private void PopulateDropDownLists(Child child = null)
         {
             ViewData["UserID"] = UserSelectList(child?.UserID);
+        }
+
+        private void PopulateAssignedActivityData(Child child)
+        {
+            var allActivities = _context.Activities;
+            var childActivities = new HashSet<int>(child.ChildEnrolleds.Select(e => e.ActID));
+            var selected = new List<ActivityVM>();
+            var available = new List<ActivityVM>();
+            foreach (var a in allActivities)
+            {
+                if (childActivities.Contains(a.ID))
+                {
+                    selected.Add(new ActivityVM
+                    {
+                        ActivityID = a.ID,
+                        Name = a.actName
+                    });
+                }
+                else
+                {
+                    available.Add(new ActivityVM
+                    {
+                        ActivityID = a.ID,
+                        Name = a.actName
+                    });
+                }
+            }
+
+            ViewData["selOpts"] = new MultiSelectList(selected.OrderBy(a => a.Name), "ActivityID", "Name");
+            ViewData["availOpts"] = new MultiSelectList(available.OrderBy(a => a.Name), "ActivityID", "Name");
+        }
+
+        private void UpdateChildActivities(string[] selectedOptions, Child childToUpdate)
+        {
+            if (selectedOptions == null)
+            {
+                childToUpdate.ChildEnrolleds = new List<childEnrolled>();
+                return;
+            }
+
+            var selectedOptionsHS = new HashSet<string>(selectedOptions);
+            var childActivities = new HashSet<int>(childToUpdate.ChildEnrolleds.Select(e => e.ActID));
+            foreach (var a in _context.Activities)
+            {
+                if (selectedOptionsHS.Contains(a.ID.ToString()))
+                {
+                    if (!childActivities.Contains(a.ID))
+                    {
+                        childToUpdate.ChildEnrolleds.Add(new childEnrolled
+                        {
+                            ActID = a.ID,
+                            ChildID = childToUpdate.ID
+                        });
+                    }
+                }
+                else
+                {
+                    if (childActivities.Contains(a.ID))
+                    {
+                        childEnrolled specToRemove = childToUpdate.ChildEnrolleds.SingleOrDefault(e => e.ActID == a.ID);
+                        _context.Remove(specToRemove);
+                    }
+                }
+            }
         }
 
         private bool ChildExists(int id)

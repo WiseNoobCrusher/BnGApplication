@@ -182,6 +182,14 @@ namespace BnGClub.Data
                          childLName = "Finley",
                          childDOB = DateTime.Parse("2017-08-02"),
                          UserID = context.Users.FirstOrDefault(u => u.userEmail == "jjfinley@outlook.com").ID
+                     },
+                     new Child
+                     {
+                         childFName = "Angelica",
+                         childMName = "Elisa",
+                         childLName = "Remington",
+                         childDOB = DateTime.Parse("2015-05-25"),
+                         UserID = context.Users.FirstOrDefault(u => u.userEmail == "eremington@gmail.com").ID
                      });
                     context.SaveChanges();
                 }
