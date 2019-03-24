@@ -181,6 +181,7 @@ namespace BnGClub.Controllers
                 .Include(c => c.User)
                 .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (child == null)
             {
                 return NotFound();
@@ -194,7 +195,13 @@ namespace BnGClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var child = await _context.Childs.FindAsync(id);
+            var child = await _context.Childs
+                .Include(c => c.User)
+                .Include(c => c.ChildEnrolleds).ThenInclude(c => c.Activities)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+            UpdateChildActivities(null, child);
+
             _context.Childs.Remove(child);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

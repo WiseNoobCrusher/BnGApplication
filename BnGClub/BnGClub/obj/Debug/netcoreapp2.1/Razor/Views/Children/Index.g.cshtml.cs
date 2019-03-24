@@ -66,7 +66,7 @@ using BnGClub.Models;
             WriteLiteral("\n<h2>Index</h2>\n\n<p>\n    ");
             EndContext();
             BeginContext(105, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c811e68015044c3399d4768927f3afcd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53b7778102f14a2880fc753c23dc33b1", async() => {
                 BeginContext(128, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -215,7 +215,7 @@ using BnGClub.Models;
             WriteLiteral("            </td>\n            <td>\n                ");
             EndContext();
             BeginContext(1322, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51eaa4ee17804a95bb9808aea011b034", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e9f3e6e60761441795a6de95f5be19ea", async() => {
                 BeginContext(1367, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -250,7 +250,7 @@ using BnGClub.Models;
             WriteLiteral(" |\n                ");
             EndContext();
             BeginContext(1394, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ac077e77e814d87bbea227d2e482e5b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6fa49d24eed48bb8f763c2bdd046773", async() => {
                 BeginContext(1442, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -285,7 +285,7 @@ using BnGClub.Models;
             WriteLiteral(" |\n                ");
             EndContext();
             BeginContext(1472, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ec9b968030342eca2a6ec635aa413a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7910feb8324d008889f5e7f3c42fc2", async() => {
                 BeginContext(1519, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

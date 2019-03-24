@@ -66,7 +66,7 @@ using BnGClub.Models;
             WriteLiteral("\n<h2>Registered Subscriptions</h2>\n\n<p>\n    ");
             EndContext();
             BeginContext(132, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5171cd0e821f4190b2dd2ebe3457c2a6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "674b97c87df744b698781c46b2494fbd", async() => {
                 BeginContext(155, 79, true);
                 WriteLiteral("Suscribe (Note: you must give permission to recieve notificaitons to suscribe.)");
                 EndContext();
@@ -217,7 +217,7 @@ using BnGClub.Models;
             WriteLiteral("\n            </td>\n            <td>\n                ");
             EndContext();
             BeginContext(1887, 109, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34c14a96543d4a138ce1efd31ae6b67c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dce230c9709d42f2b0520a9f23ba0c59", async() => {
                 BeginContext(1988, 4, true);
                 WriteLiteral("Send");
                 EndContext();
@@ -263,7 +263,7 @@ using BnGClub.Models;
             WriteLiteral(" |\n                ");
             EndContext();
             BeginContext(2015, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f444a7f18a343de8662cb2e3cab84e8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad31a1181fa94e1e98ec4ed980ff620a", async() => {
                 BeginContext(2062, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
