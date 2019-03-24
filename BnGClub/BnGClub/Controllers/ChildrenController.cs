@@ -9,6 +9,7 @@ using BnGClub.Data;
 using BnGClub.Models;
 using BnGClub.ViewModels;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BnGClub.Controllers
 {
@@ -64,6 +65,7 @@ namespace BnGClub.Controllers
             Child child = new Child();
             PopulateAssignedActivityData(child);
             PopulateDropDownLists();
+            ViewData["Users"] = Request.Query["id"];
             return View();
         }
 
@@ -76,7 +78,13 @@ namespace BnGClub.Controllers
         {
             try
             {
+                if (User.IsInRole("Parent"))
+                {
+                    child.UserID = _context.Users.FirstOrDefault(u => u.userEmail == User.Identity.Name).ID;
+                }
+
                 UpdateChildActivities(selectedOptions, child);
+
                 if (ModelState.IsValid)
                 {
                     _context.Add(child);
@@ -114,6 +122,7 @@ namespace BnGClub.Controllers
 
             PopulateAssignedActivityData(child);
             PopulateDropDownLists(child);
+            ViewData["Users"] = Request.Query["id"];
             return View(child);
         }
 
@@ -132,6 +141,11 @@ namespace BnGClub.Controllers
             if (childToUpdate == null)
             {
                 return NotFound();
+            }
+
+            if (User.IsInRole("Parent"))
+            {
+                childToUpdate.UserID = _context.Users.FirstOrDefault(u => u.userEmail == User.Identity.Name).ID;
             }
 
             UpdateChildActivities(selectedOptions, childToUpdate);
@@ -169,7 +183,9 @@ namespace BnGClub.Controllers
             return View(childToUpdate);
         }
 
+
         // GET: Children/Delete/5
+        [Authorize(Roles = "Instructor,Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -191,6 +207,7 @@ namespace BnGClub.Controllers
         }
 
         // POST: Children/Delete/5
+        [Authorize(Roles = "Instructor,Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

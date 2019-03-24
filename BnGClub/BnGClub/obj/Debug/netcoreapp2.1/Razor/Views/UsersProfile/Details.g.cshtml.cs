@@ -170,7 +170,7 @@ using BnGClub.Models;
             WriteLiteral("\r\n        </dd>\r\n        <dt>\r\n            Notifications?:\r\n        </dt>\r\n        <dd>\r\n            <input type=\"checkbox\" id=\"notifications\" checked data-toggle=\"toggle\">\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1236, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a7de255c7da411ea414aa99b9faffd0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04b58ee7dc5d4357b304cb067ca0a3e7", async() => {
                 BeginContext(1282, 12, true);
                 WriteLiteral("Edit Profile");
                 EndContext();

@@ -62,7 +62,7 @@ namespace BnGClub.Controllers
                     _context.Add(users);
                     await _context.SaveChangesAsync();
                     UpdateUserNameCookie(users.FullName);
-                    return RedirectToAction(nameof(Details));
+                    return LocalRedirect("/Children/Create");
                 }
             }
             catch (DbUpdateException)
