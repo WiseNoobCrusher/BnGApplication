@@ -260,7 +260,6 @@ C:\Users\Administrator\Desktop\BnGClub\BnGClub\bin\Debug\netcoreapp2.1\BnGClub.d
 C:\Users\Administrator\Desktop\BnGClub\BnGClub\bin\Debug\netcoreapp2.1\BnGClub.pdb
 C:\Users\Administrator\Desktop\BnGClub\BnGClub\bin\Debug\netcoreapp2.1\BnGClub.Views.dll
 C:\Users\Administrator\Desktop\BnGClub\BnGClub\bin\Debug\netcoreapp2.1\BnGClub.Views.pdb
-C:\Users\Administrator\Desktop\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.RazorAssemblyInfo.cache
 C:\Users\Administrator\Desktop\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.RazorAssemblyInfo.cs
@@ -515,3 +514,4 @@ D:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.Views.pdb
 D:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.dll
 D:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.pdb
 D:\B&GClub\BGC_App\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.csproj.CopyComplete
+C:\Users\Administrator\Desktop\BnGClub\BnGClub\obj\Debug\netcoreapp2.1\BnGClub.csprojAssemblyReference.cache

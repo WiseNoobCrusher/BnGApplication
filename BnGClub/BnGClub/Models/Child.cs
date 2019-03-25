@@ -11,6 +11,8 @@ namespace BnGClub.Models
         public Child()
         {
             this.ChildEnrolleds = new HashSet<childEnrolled>();
+            Subscriptions = new HashSet<Subscriptions>();
+
         }
         public int ID { get; set; }
 
@@ -53,6 +55,9 @@ namespace BnGClub.Models
 
         public virtual Users User { get; set; }
 
+
         public virtual ICollection<childEnrolled> ChildEnrolleds { get; set; }
+
+        public ICollection<Subscriptions> Subscriptions { get; set; }
     }
 }
