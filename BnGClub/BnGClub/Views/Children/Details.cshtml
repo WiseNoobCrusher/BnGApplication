@@ -1,0 +1,48 @@
+﻿@model BnGClub.Models.Child
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Child</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.childFName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childFName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.childMName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childMName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.childLName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childLName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.childDOB)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.childDOB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.FullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
