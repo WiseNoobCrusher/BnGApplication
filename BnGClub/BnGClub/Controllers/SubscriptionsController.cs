@@ -34,8 +34,8 @@ namespace BnGClub.Controllers
                 return RedirectToAction("GenerateKeys", "WebPush");
             }
 
-            var bnGClubContext = _context.Subscriptions.Include(s => s.Leader).Include(s => s.User);
-            return View(await bnGClubContext.ToListAsync());
+            var Subscriptions = _context.Subscriptions.Include(s => s.Leader).Include(s => s.User);
+            return View(await Subscriptions.ToListAsync());
         }
 
         // GET: Subscriptions/Details/5
