@@ -1,0 +1,45 @@
+﻿@model BnGClub.Models.Users
+
+@{
+    ViewData["Title"] = "Create Profile";
+}
+
+<h2>Create Profile</h2>
+
+<h4>Create Profile for @User.Identity.Name</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="userEmail" value="@User.Identity.Name" />
+            <div class="form-group">
+                <label asp-for="userFName" class="control-label"></label>
+                <input asp-for="userFName" class="form-control" />
+                <span asp-validation-for="userFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userMName" class="control-label"></label>
+                <input asp-for="userMName" class="form-control" />
+                <span asp-validation-for="userMName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userLName" class="control-label"></label>
+                <input asp-for="userLName" class="form-control" />
+                <span asp-validation-for="userLName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userPhone" class="control-label"></label>
+                <input asp-for="userPhone" class="form-control" />
+                <span asp-validation-for="userPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
