@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BnGClub.Models.Message>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Index</h2>
+
+<p>
+
+    <select asp-items="@ViewBag.RecipientID" id="ddlRecipient" onchange="checkDDL()"></select><br /><br />
+    <input type="number" name="recipient" hidden="hidden" id="recipient" />
+
+    @if (User.IsInRole("Instructor"))
+    {
+        <input type="button" value="Send Message" onclick="msgCreate2()" />
+    }
+    else if (User.IsInRole("Parent"))
+    {
+        <input type="button" value="Send Message" onclick="msgCreate()" />
+    }
+
+    <br /><br /><input type="button" value="View" onclick="filterMsg()" />  
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.msgTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.msgFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.msgBody)
+            </th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.msgTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.msgFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.msgBody)
+            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>
+<script src="~/js/CheckDDL.js"></script>
